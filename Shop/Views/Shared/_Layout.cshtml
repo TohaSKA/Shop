@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel=" stylesheet" type="text/css" />
+    <link href="~/css/style.css" rel=" stylesheet" type="text/css" />
+</head>
+
+<body>
+     <header>
+          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+               <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Shop</font></font></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Переключить навигацию">
+                         <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Home</font></font></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Cars/List"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Toate Cursurile</font></font></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Cars/List/electro"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cursuri mai putin populare</font></font></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Cars/List/fuel"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cursuri populare</font></font></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " href="/ShopCart/" tabindex="-1" aria-disabled="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Backet</font></font></a>
+                            </li>
+                            <li class="nav-item active">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a class="nav-link" aria-current="page" asp-controller="Auth" asp-action="Logout"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Exit to Admin</font></font></a>
+                                    <a class="nav-link" href="/coreadmin"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Modifica</font></font></a>
+                                }
+                                else
+                                {
+                                    <a class="nav-link" aria-current="page" asp-controller="Auth" asp-action="Login"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Logare</font></font></a>
+
+                                }
+                            </li>
+                            
+
+                            
+
+
+
+                        </ul>
+                        
+                    </div>
+               </div>
+          </nav>
+     </header>
+
+     <div class="container mt-5">
+          @RenderBody()
+     </div>
+     <footer class="container">
+          <p class="float-end"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sus</font></font></a></p>
+          <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© 2021 Toate dreprutile sunt aparate </font></font><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acord</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> · </font></font><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Условия</font></font></a></p>
+     </footer>
+     <script src="~/js/bootstrap.min.js"></script>
+</body>
+</html>
